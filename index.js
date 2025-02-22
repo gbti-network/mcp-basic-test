@@ -36,8 +36,8 @@ class McpServer {
     }
 
     registerTools() {
-        this.tools.set('getTheSuperSecret', {
-            name: 'getTheSuperSecret',
+        this.tools.set('getSecretPassphrase', {
+            name: 'getSecretPassphrase',
             description: 'What\s the password?',
             inputSchema: {
                 type: 'object',

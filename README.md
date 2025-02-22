@@ -31,7 +31,7 @@ cd mcp-basic-test
 npm install
 ```
 
-### Running the Server
+### Running the Inspector
 
 Start the server with MCP Inspector:
 ```bash
@@ -42,7 +42,7 @@ The server will start and be available for connections via STDIO.
 
 ## Available Tools
 
-### getTheSuperSecret
+### getSecretPassphrase
 
 Returns a random combination of a US State and its signature soup. Examples include:
 - New England Clam Chowder
@@ -121,6 +121,41 @@ The server uses a custom logging system with multiple levels:
 
 Logs are stored in the `.logs` directory.
 
+## Using with Cascade
+
+### Option 1: Direct Tool Usage
+When the MCP server is loaded in Cascade, you can directly use the `getSecretPassphrase` tool to generate state-soup combinations.
+
+### Option 2: Natural Language Interface
+To make the tool more user-friendly, you can set up Cascade to respond to natural language queries about secret passcodes. Here's an example prompt:
+
+```
+When users ask variations of "What is the secret passcode?", use the getSecretPassphrase tool to generate and return a US State + Soup combination as "Today's secret passcode is: [STATE] [SOUP]"
+```
+
+This will allow users to get passcodes using natural questions like:
+- "What's the secret passcode?"
+- "Tell me the secret code"
+- "What's today's passcode?"
+- "Give me the secret"
+
+Example interaction:
+```
+User: "What's the secret passcode?"
+Cascade: "Today's secret passcode is: Louisiana Gumbo 🍜"
+```
+
+### Option 3: Persistent Memory
+For a more permanent setup, you can create a Cascade memory that persists across sessions:
+
+```javascript
+{
+  "Title": "Secret Passcode Handler",
+  "Content": "When the user asks any variation of 'What is the secret passcode?', use the getSecretPassphrase tool and return its result as 'Today's secret passcode is: [STATE] [SOUP]'",
+  "Tags": ["mcp_server", "secret_passcode", "tool_execution"]
+}
+```
+
 ## Testing
 
 1. Start the server with MCP Inspector
@@ -145,3 +180,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Model Context Protocol team for the protocol specification
 - MCP Inspector team for the testing tool
+
+## Stay Connected
+
+Follow us on your favorite platforms for updates, news, and community discussions:
+- **[Twitter/X](https://twitter.com/gbti_network)**
+- **[GitHub](https://github.com/gbti-network)**
+- **[YouTube](https://www.youtube.com/channel/UCh4FjB6r4oWQW-QFiwqv-UA)**
+- **[Dev.to](https://dev.to/gbti)**
+- **[Daily.dev](https://dly.to/zfCriM6JfRF)**
+- **[Hashnode](https://gbti.hashnode.dev/)**
+- **[Discord Community](https://gbti.network)**
+- **[Reddit Community](https://www.reddit.com/r/GBTI_network)**
