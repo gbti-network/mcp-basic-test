@@ -156,6 +156,42 @@ For a more permanent setup, you can create a Cascade memory that persists across
 }
 ```
 
+### MCP Configuration
+To configure the MCP server in Cascade, add the following to your `mcp_config.json`:
+
+```json
+{
+    "mcpServers": {
+        "super-secret": {
+            "command": "npx",
+            "args": [
+                "--yes",
+                "node",
+                "<path-to-project>/index.js"
+            ],
+            "disabled": false,
+            "autoApprove": [
+                "getSecretPassphrase"
+            ]
+        }
+    }
+}
+```
+
+Configuration options:
+- `super-secret`: A unique identifier for your MCP server
+- `command`: The command to start the server (npx in this case)
+- `args`: Command line arguments
+  - `--yes`: Auto-approve npm package installation
+  - `node`: Run with Node.js
+  - `<path-to-project>/index.js`: Path to your server file
+- `disabled`: Whether the server is disabled
+- `autoApprove`: List of tools that can be run without user confirmation
+
+The config file should be placed at:
+- Windows: `%USERPROFILE%\.codeium\windsurf\mcp_config.json`
+- macOS/Linux: `$HOME/.codeium/windsurf/mcp_config.json`
+
 ## Testing
 
 1. Start the server with MCP Inspector
@@ -190,5 +226,5 @@ Follow us on your favorite platforms for updates, news, and community discussion
 - **[Dev.to](https://dev.to/gbti)**
 - **[Daily.dev](https://dly.to/zfCriM6JfRF)**
 - **[Hashnode](https://gbti.hashnode.dev/)**
-- **[Discord Community](https://gbti.network)**
-- **[Reddit Community](https://www.reddit.com/r/GBTI_network)**
+- **[Discord](https://gbti.network/membership)**
+- **[Reddit](https://www.reddit.com/r/GBTI_network)**
