@@ -1,0 +1,15 @@
+{
+  "name": "test-mcp-server",
+  "version": "1.0.0",
+  "description": "A custom MCP server that provides super secret combinations",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
